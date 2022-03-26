@@ -622,7 +622,7 @@ function getcoco(v)
     temptable.coconut = true
     api.tween(.01, v.CFrame)
     repeat task.wait() api.walkTo(v.Position) until not v.Parent
-    task.wait(.01)
+    task.wait(.125)
     temptable.coconut = false
     table.remove(temptable.coconuts, table.find(temptable.coconuts, v))
 end
@@ -758,10 +758,10 @@ information:CreateLabel("")
 local farmo = farmtab:CreateSection("Farming")
 local fielddropdown = farmo:CreateDropdown("Field", fieldstable, function(String) kocmoc.vars.field = String end) fielddropdown:SetOption(fieldstable[1])
 convertatslider = farmo:CreateSlider("Convert At", 0, 100, 100, false, function(Value) kocmoc.vars.convertat = Value end)
-local autofarmtoggle = farmo:CreateToggle("Autofarm ⚙", nil, function(State) kocmoc.toggles.autofarm = State end)
+local autofarmtoggle = farmo:CreateToggle("Autofarm ⚙", nil, function(State) kocmoc.toggles.autofarm = State end) autofarmtoggle:CreateKeybind("U", function(Key) end)
 farmo:CreateToggle("Autodig", nil, function(State) kocmoc.toggles.autodig = State end)
 farmo:CreateDropdown("Autodig Mode", {"Normal","Collector Steal"}, function(Option)  kocmoc.vars.autodigmode = Option end)
-farmo:CreateToggle("Don't Convert Pollen", nil, function(State) kocmoc.toggles.disableconversion = State end)
+local disableconversiontoggle = farmo:CreateToggle("Don't Convert Pollen", nil, function(State) kocmoc.toggles.disableconversion = State end) disableconversiontoggle:CreateKeybind("Y", function(Key) end)
 farmo:CreateToggle("Auto Sprinkler", nil, function(State) kocmoc.toggles.autosprinkler = State end)
 farmo:CreateToggle("Farm Bubbles", nil, function(State) kocmoc.toggles.farmbubbles = State end)
 farmo:CreateToggle("Farm Flames", nil, function(State) kocmoc.toggles.farmflame = State end)
