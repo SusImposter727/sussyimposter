@@ -622,7 +622,7 @@ function getcoco(v)
     temptable.coconut = true
     api.tween(.01, v.CFrame)
     repeat task.wait() api.walkTo(v.Position) until not v.Parent
-    task.wait(.125)
+    task.wait(.1)
     temptable.coconut = false
     table.remove(temptable.coconuts, table.find(temptable.coconuts, v))
 end
