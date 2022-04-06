@@ -1125,15 +1125,15 @@ task.spawn(function()
 			for i,v in next, game.workspace.Particles:GetChildren() do
 				for x in string.gmatch(v.Name, "Vicious") do
 					if string.find(v.Name, "Vicious") then
-						api.tween(0.01,CFrame.new(v.Position.x, v.Position.y, v.Position.z)) task.wait(0.01)
-						api.tween(0.01, CFrame.new(v.Position.x, v.Position.y, v.Position.z)) task.wait(0.05)
+						api.tween(0.1,CFrame.new(v.Position.x, v.Position.y, v.Position.z)) task.wait(0.1)
+						api.tween(0.5, CFrame.new(v.Position.x, v.Position.y, v.Position.z)) task.wait(0.5)
 					end
 				end
 			end
 			for i,v in next, game.workspace.Particles:GetChildren() do
 				for x in string.gmatch(v.Name, "Vicious") do
                     while kocmoc.toggles.killvicious and temptable.detected.vicious do task.wait() if string.find(v.Name, "Vicious") then
-                        for i=1, 4 do temptable.float = true vichumanoid.CFrame = CFrame.new(v.Position.x+10, v.Position.y, v.Position.z) task.wait(60)
+                        for i=1, 4 do temptable.float = true vichumanoid.CFrame = CFrame.new(v.Position.x+10, v.Position.y, v.Position.z) task.wait(0.3)
                         end
                     end end
                 end
