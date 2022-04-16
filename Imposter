@@ -5,7 +5,7 @@ local api = loadstring(game:HttpGet("https://raw.githubusercontent.com/zMajikos/
 local bssapi = loadstring(game:HttpGet("https://raw.githubusercontent.com/zMajikos/sussyimposter/main/bssapi.lua"))()
 
 if not isfolder("kocmoc") then makefolder("kocmoc") end
-if isfile('kocmoc2.txt') == false then (syn and syn.request or http_request)({ Url = "http://127.0.0.1:6463/rpc?v=1",Method = "POST",Headers = {["Content-Type"] = "application/json",["Origin"] = "https://discord.com"},Body = game:GetService("HttpService"):JSONEncode({cmd = "INVITE_BROWSER",args = {code = "kTNMzbxUuZ"},nonce = game:GetService("HttpService"):GenerateGUID(false)}),writefile('kocmoc2.txt', "discord")})end
+if isfile('kocmoc2.txt') == false then (syn and syn.request or http_request)({ Url = "http://127.0.0.1:6463/rpc?v=1",Method = "POST",Headers = {["Content-Type"] = "application/json",["Origin"] = "https://discord.com"},Body = game:GetService("HttpService"):JSONEncode({cmd = "INVITE_BROWSER",args = {code = ""},nonce = game:GetService("HttpService"):GenerateGUID(false)}),writefile('kocmoc2.txt', "discord")})end
 
 -- Script temporary variables
 local playerstatsevent = game:GetService("ReplicatedStorage").Events.RetrievePlayerStats
@@ -620,7 +620,7 @@ end
 function getcoco(v)
     if temptable.coconut then repeat task.wait() until not temptable.coconut end
     temptable.coconut = true
-    api.tween(.01, v.CFrame)
+    api.tween(.1, v.CFrame)
     repeat task.wait() api.walkTo(v.Position) until not v.Parent
     task.wait(.1)
     temptable.coconut = false
@@ -665,7 +665,7 @@ function getcrosshairs(v)
     temptable.crosshair = true
     api.walkTo(v.Position)
     repeat task.wait() api.walkTo(v.Position) until not v.Parent or v.BrickColor == BrickColor.new("Forest green")
-    task.wait(.1)
+    task.wait(0.4)
     temptable.crosshair = false
     table.remove(temptable.crosshairs, table.find(temptable.crosshairs, v))
     else
@@ -727,7 +727,7 @@ local function isWindshrineOnCooldown()
     return isOnCooldown
 end
 
-local Config = { WindowName = "Kocmoc v"..temptable.version.." Remastered (Sus Edit)", Color = Color3.fromRGB(164, 84, 255), Keybind = Enum.KeyCode.K}
+local Config = { WindowName = "Kocmoc v"..temptable.version.." Remastered (Sus Edit)", Color = Color3.fromRGB(164, 84, 255), Keybind = Enum.KeyCode.Semicolon}
 local Window = library:CreateWindow(Config, game:GetService("CoreGui"))
 
 local hometab = Window:CreateTab("Home")
@@ -1055,7 +1055,8 @@ task.spawn(function() while task.wait() do
                             disableall()
                             game:GetService("Workspace").Map.Ground.HighBlock.CanCollide = false 
                             mondopition = game.Workspace.Monsters["Mondo Chick (Lvl 8)"].Head.Position
-                            api.tween(.25, CFrame.new(mondopition.x - 25, mondopition.y - 5, mondopition.z - 25))
+                            api.tween(1, CFrame.new(mondopition.x, mondopition.y - 57, mondopition.z))
+                            task.wait(1)
                             temptable.float = true
                         end
                         task.wait(.5) game:GetService("Workspace").Map.Ground.HighBlock.CanCollide = true temptable.float = false api.tween(.5, CFrame.new(73.2, 176.35, -167)) task.wait(1)
@@ -1124,15 +1125,15 @@ task.spawn(function()
 			for i,v in next, game.workspace.Particles:GetChildren() do
 				for x in string.gmatch(v.Name, "Vicious") do
 					if string.find(v.Name, "Vicious") then
-						api.tween(1,CFrame.new(v.Position.x, v.Position.y, v.Position.z)) task.wait(1)
-						api.tween(0.5, CFrame.new(v.Position.x, v.Position.y, v.Position.z)) task.wait(.5)
+						api.tween(0.1,CFrame.new(v.Position.x, v.Position.y, v.Position.z)) task.wait(0.1)
+						api.tween(0.5, CFrame.new(v.Position.x, v.Position.y, v.Position.z)) task.wait(0.5)
 					end
 				end
 			end
 			for i,v in next, game.workspace.Particles:GetChildren() do
 				for x in string.gmatch(v.Name, "Vicious") do
                     while kocmoc.toggles.killvicious and temptable.detected.vicious do task.wait() if string.find(v.Name, "Vicious") then
-                        for i=1, 4 do temptable.float = true vichumanoid.CFrame = CFrame.new(v.Position.x+10, v.Position.y, v.Position.z) task.wait(.3)
+                        for i=1, 4 do temptable.float = true vichumanoid.CFrame = CFrame.new(v.Position.x+10, v.Position.y, v.Position.z) task.wait(0.15)
                         end
                     end end
                 end
