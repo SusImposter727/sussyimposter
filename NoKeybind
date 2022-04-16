@@ -665,7 +665,7 @@ function getcrosshairs(v)
     temptable.crosshair = true
     api.walkTo(v.Position)
     repeat task.wait() api.walkTo(v.Position) until not v.Parent or v.BrickColor == BrickColor.new("Forest green")
-    task.wait(0.5)
+    task.wait(0.4)
     temptable.crosshair = false
     table.remove(temptable.crosshairs, table.find(temptable.crosshairs, v))
     else
